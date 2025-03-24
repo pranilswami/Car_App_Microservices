@@ -124,9 +124,9 @@ public class OrderService {
         return ResponseEntity.ok(paymentClient.processPayment(paymentDto));
     }
     public ResponseEntity<PaymentDto> fallbackForPaymentService(PaymentDto paymentDto, Throwable t){
-        log.error("Payment-Service is down! Returning fallback response.");
+        log.error("Payment-Service is slow! Returning fallback response.");
         PaymentDto response = new PaymentDto();
-        response.setMessage("Payment service is down! Please try again later.");
+        response.setMessage("Payment service is slow or down! Please try again later.");
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
     }
 
