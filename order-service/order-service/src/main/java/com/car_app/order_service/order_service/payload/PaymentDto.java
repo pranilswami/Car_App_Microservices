@@ -1,11 +1,14 @@
 package com.car_app.order_service.order_service.payload;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)  // Null properties JSON response me nahi aayengi
 public class PaymentDto {
     private Long orderId;
     private Double amount;
     private Long paymentStatusId;
     private Long paymentMethodId;
+    private String message;
 
     public PaymentDto(){}
     public PaymentDto(Long orderId,Double amount,Long paymentStatusId,Long paymentMethodId){
@@ -13,6 +16,18 @@ public class PaymentDto {
         this.amount = amount;
         this.paymentMethodId = paymentMethodId;
         this.paymentStatusId = paymentMethodId;
+    }
+
+    public PaymentDto(String message){
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public Long getOrderId() {

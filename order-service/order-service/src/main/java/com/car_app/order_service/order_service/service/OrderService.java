@@ -93,8 +93,6 @@ public class OrderService {
     @CircuitBreaker(name = "user-service", fallbackMethod = "fallbackForUserService")
     public ResponseEntity<UserDto> fetchUserDetails(Long userId) {
         log.info("Inside the order-service in method - fetchUserDetails() and now fetching the user details");
-        UserDto userDto = userClient.getUserById(userId);
-        System.out.println(userDto.getName()+" "+userDto.getEmailId()+" "+userDto.getUsername());
         return ResponseEntity.ok(userClient.getUserById(userId));
     }
     public ResponseEntity<UserDto> fallbackForUserService(Long userId, Throwable t) {
@@ -107,21 +105,29 @@ public class OrderService {
 
 
     @CircuitBreaker(name = "car-service", fallbackMethod = "fallbackForCarService")
-    public CarDto fetchCarDetails(Long carId) {
-        return carClient.getCarById(carId);
+    public ResponseEntity<CarDto> fetchCarDetails(Long carId) {
+        log.info("Inside the order-service in method - fetchCarDetails() and now fetching the car details");
+        return ResponseEntity.ok(carClient.getCarById(carId));
     }
-    public CarDto fallbackForCarService(Long userId, Throwable t){
-        return new CarDto("default","Car Service Unavailable");
+    public ResponseEntity<CarDto> fallbackForCarService(Long userId, Throwable t){
+        log.error("Car-Service is down! Returning fallback response.");
+        CarDto response = new CarDto();
+        response.setMessage("Car service is down! Please try again later.");
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
     }
 
 
 // Process Payments
     @Retry(name = "payment-service", fallbackMethod = "fallbackForPaymentService")
-    public PaymentDto makePayment(PaymentDto paymentDto) {
-        return paymentClient.processPayment(paymentDto);
+    public ResponseEntity<PaymentDto> makePayment(PaymentDto paymentDto) {
+        log.info("Inside the payment-service in method - makePayment() and now fetching the payment details");
+        return ResponseEntity.ok(paymentClient.processPayment(paymentDto));
     }
-    public String fallbackForPaymentService(PaymentDto paymentDto, Throwable t){
-        return "Payment Service is currently unavailable. Please try again later.";
+    public ResponseEntity<PaymentDto> fallbackForPaymentService(PaymentDto paymentDto, Throwable t){
+        log.error("Payment-Service is down! Returning fallback response.");
+        PaymentDto response = new PaymentDto();
+        response.setMessage("Payment service is down! Please try again later.");
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
     }
 
 

@@ -57,13 +57,13 @@ public class OrderController {
     }
 
     @GetMapping("/getCarById/{carId}")
-    public CarDto getCarDetails(@PathVariable("carId") Long carId){
+    public ResponseEntity<CarDto> getCarDetails(@PathVariable("carId") Long carId){
         logger.info("getting car details by car id...");
         return orderService.fetchCarDetails(carId);
     }
 
     @PostMapping("/processPayment")
-    public PaymentDto processPayment(@RequestBody PaymentDto paymentDto){
+    public ResponseEntity<PaymentDto> processPayment(@RequestBody PaymentDto paymentDto){
         logger.info("processing payment...");
         return orderService.makePayment(paymentDto);
     }
