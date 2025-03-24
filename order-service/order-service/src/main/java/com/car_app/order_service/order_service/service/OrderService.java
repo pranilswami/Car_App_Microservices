@@ -89,19 +89,24 @@ public class OrderService {
     }
 
 
-    @CircuitBreaker(name = "userService", fallbackMethod = "fallbackForUserService")
-    public UserDto fetchUserDetails(Long userId) {
-        log.info("INSIDE THE FETCH USER DETAILS------------------------------");
+
+    @CircuitBreaker(name = "user-service", fallbackMethod = "fallbackForUserService")
+    public ResponseEntity<UserDto> fetchUserDetails(Long userId) {
+        log.info("Inside the order-service in method - fetchUserDetails() and now fetching the user details");
         UserDto userDto = userClient.getUserById(userId);
         System.out.println(userDto.getName()+" "+userDto.getEmailId()+" "+userDto.getUsername());
-        return userDto;
+        return ResponseEntity.ok(userClient.getUserById(userId));
     }
-    public UserDto fallbackForUserService(Long userId, Throwable t) {
-        return new UserDto("default", "User Service Unavailable");
+    public ResponseEntity<UserDto> fallbackForUserService(Long userId, Throwable t) {
+        log.error("User-Service is down! Returning fallback response.");
+        UserDto response = new UserDto();
+        response.setMessage("User service is down! Please try again later.");
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
     }
 
 
-    @CircuitBreaker(name = "carService", fallbackMethod = "fallbackForCarService")
+
+    @CircuitBreaker(name = "car-service", fallbackMethod = "fallbackForCarService")
     public CarDto fetchCarDetails(Long carId) {
         return carClient.getCarById(carId);
     }
@@ -111,7 +116,7 @@ public class OrderService {
 
 
 // Process Payments
-    @Retry(name = "paymentService", fallbackMethod = "fallbackForPaymentService")
+    @Retry(name = "payment-service", fallbackMethod = "fallbackForPaymentService")
     public PaymentDto makePayment(PaymentDto paymentDto) {
         return paymentClient.processPayment(paymentDto);
     }
@@ -120,7 +125,7 @@ public class OrderService {
     }
 
 
-    @RateLimiter(name = "notificationService", fallbackMethod = "fallbackForRateLimit")
+    @RateLimiter(name = "notification-service", fallbackMethod = "fallbackForRateLimit")
     public void sendNotification(NotificationEvent event){
         notificationClient.sendNotification(event);
     }

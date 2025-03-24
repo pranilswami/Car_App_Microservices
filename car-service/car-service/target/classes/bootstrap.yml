@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: car-service  # ✅ Ye naam GitHub wali config file se match hona chahiye
+  cloud:
+    config:
+      uri: http://localhost:8888  # ✅ Config Server ka URL
+      fail-fast: true  # ✅ Agar Config Server down hai to startup fail ho jaye
+      label: Car-App-Config_Server  # ✅ Ye ensure karo ki correct branch se fetch ho raha hai
+  profiles:
+    active: default  # ✅ Ensure karo ki correct profile use ho raha hai

@@ -1,19 +1,32 @@
 package com.car_app.order_service.order_service.payload;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)  // Null properties JSON response me nahi aayengi
 public class UserDto {
     private String name;
     private String username;
     private String emailId;
+    private String message;
 
-    //Constructor for fallback
-    public UserDto(String aDefault, String userServiceUnavailable) {
-
-    }
     public UserDto(){}
     public UserDto(String name,String username,String emailId){
         this.name = name;
         this.username = username;
         this.emailId = emailId;
+    }
+
+    //    Returning fall back message using constructor
+    public UserDto(String message){
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getName() {

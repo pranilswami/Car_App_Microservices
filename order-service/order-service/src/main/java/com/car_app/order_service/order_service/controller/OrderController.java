@@ -51,7 +51,7 @@ public class OrderController {
     }
 
     @GetMapping("/userDetails/{userId}")
-    public UserDto getUserDetails(@PathVariable("userId") Long userId) {
+    public ResponseEntity<UserDto> getUserDetails(@PathVariable("userId") Long userId) {
         logger.info("getting user details by user id...");
         return orderService.fetchUserDetails(userId);
     }
