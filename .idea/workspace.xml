@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc3648e-b6ec-4b87-94cc-9e4928e0b910" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car-service/car-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/car-service-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/car-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/surefire-reports/2025-03-22T02-14-59_510.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/surefire-reports/TEST-com.car_app.car_service.car_service.CarServiceApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/surefire-reports/com.car_app.car_service.car_service.CarServiceApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/notification-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-registry/service-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/service-registry/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
