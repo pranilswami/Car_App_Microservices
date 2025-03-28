@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.car_app.car_service.car_service.CarServiceApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.74 s -- in com.car_app.car_service.car_service.CarServiceApplicationTests
