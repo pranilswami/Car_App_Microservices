@@ -3,14 +3,16 @@ version: '3.8'
 services:
   # Service Registry (Eureka Server)
   service-registry:
-    build: ./service-registry
+    build: ./service-registry/service-registry
     container_name: service-registry
     ports:
       - "8761:8761"
+    networks:
+      - car-app-network
 
   # API Gateway
   api-gateway:
-    build: ./api-gateway
+    build: ./api-gateway/api-gateway
     container_name: api-gateway
     ports:
       - "8080:8080"
@@ -21,6 +23,8 @@ services:
       - order-service
       - payment-service
       - notification-service
+    networks:
+      - car-app-network
 
   # User Service & Database
   mysql-user:
@@ -31,16 +35,18 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE_USER}
     ports:
-      - "3307:3306"
+      - "3310:3306"
 
   user-service:
-    build: ./user-service
+    build: ./user-service/user-service
     container_name: user-service
     ports:
       - "8081:8081"
     depends_on:
       - mysql-user
       - service-registry
+    networks:
+      - car-app-network
 
   # Car Service & Database
   mysql-car:
@@ -51,16 +57,18 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE_CAR}
     ports:
-      - "3308:3306"
+      - "3311:3306"
 
   car-service:
-    build: ./car-service
+    build: ./car-service/car-service
     container_name: car-service
     ports:
       - "8082:8082"
     depends_on:
       - mysql-car
       - service-registry
+    networks:
+      - car-app-network
 
   # Order Service & Database
   mysql-order:
@@ -71,16 +79,18 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE_ORDER}
     ports:
-      - "3309:3306"
+      - "3312:3306"
 
   order-service:
-    build: ./order-service
+    build: ./order-service/order-service
     container_name: order-service
     ports:
       - "8083:8083"
     depends_on:
       - mysql-order
       - service-registry
+    networks:
+      - car-app-network
 
   # Payment Service & Database
   mysql-payment:
@@ -91,25 +101,30 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE_PAYMENT}
     ports:
-      - "3310:3306"
+      - "3312:3306"
+
 
   payment-service:
-    build: ./payment-service
+    build: ./payment-service/payment-service
     container_name: payment-service
     ports:
       - "8084:8084"
     depends_on:
       - mysql-payment
       - service-registry
+    networks:
+      - car-app-network
 
   # Notification Service (Using Feign Client)
   notification-service:
-    build: ./notification-service
+    build: ./notification-service/notification-service
     container_name: notification-service
     ports:
       - "8085:8085"
     depends_on:
       - service-registry
+    networks:
+      - car-app-network
 
   # Zipkin for Distributed Tracing
   zipkin:
@@ -117,3 +132,9 @@ services:
     container_name: zipkin
     ports:
       - "9411:9411"
+    networks:
+      - car-app-network
+
+networks:
+  car-app-network:
+    driver: bridge
