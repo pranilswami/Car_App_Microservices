@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.carportal</groupId>
+    <artifactId>car-app</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>api-gateway/api-gateway</module>
+        <module>service-registry/service-registry</module>
+        <module>car-service/car-service</module>
+        <module>user-service/user-service</module>
+        <module>order-service/order-service</module>
+        <module>payment-service/payment-service</module>
+        <module>notification-service/notification-service</module>
+    </modules>
+</project>
