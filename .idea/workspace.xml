@@ -5,26 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc3648e-b6ec-4b87-94cc-9e4928e0b910" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car-service/car-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car-service/car-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/notification-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/notification-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/notification-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/order-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment-service/payment-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-registry/service-registry/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/service-registry/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-registry/service-registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/service-registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/user-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +26,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -72,6 +71,7 @@
     "Docker.docker-compose.yml.service-registry: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.user-service: Compose Deployment.executor": "Run",
     "Maven.api-gateway [spring-boot:build-image...].executor": "Run",
+    "Maven.car-app [-pl,service-registry...].executor": "Run",
     "Maven.car-app [clean].executor": "Run",
     "Maven.car-app [compile].executor": "Run",
     "Maven.car-app [package].executor": "Run",
@@ -86,6 +86,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn spring-boot:build-image -DskipTests -DdockerPassword=dckr_pat_7H4uewKqXfa1rb42sC8Z8arvw58" />
+      <command value="mvn -pl service-registry spring-boot:build-image -DskipTests" />
     </option>
   </component>
   <component name="RunManager" selected="Docker.docker-compose.yml.user-service: Compose Deployment">
@@ -101,7 +102,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml.mysql-car: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -189,5 +192,28 @@
       <updated>1743098359850</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="initial" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
