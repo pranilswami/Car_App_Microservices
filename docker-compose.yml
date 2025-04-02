@@ -32,10 +32,14 @@ services:
     container_name: mysql-user
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE_USER}
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: user_db
     ports:
       - "3310:3306"
+    networks:
+      - car-app-network
+    volumes:
+      - mysql-user-data:/var/lib/mysql
 
   user-service:
     build: ./user-service/user-service
@@ -54,10 +58,14 @@ services:
     container_name: mysql-car
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE_CAR}
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: car_db
     ports:
       - "3311:3306"
+    networks:
+      - car-app-network
+    volumes:
+      - mysql-car-data:/var/lib/mysql
 
   car-service:
     build: ./car-service/car-service
@@ -76,10 +84,14 @@ services:
     container_name: mysql-order
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE_ORDER}
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: order_db
     ports:
       - "3312:3306"
+    networks:
+      - car-app-network
+    volumes:
+      - mysql-order-data:/var/lib/mysql
 
   order-service:
     build: ./order-service/order-service
@@ -98,10 +110,14 @@ services:
     container_name: mysql-payment
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE_PAYMENT}
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: payment_db
     ports:
-      - "3312:3306"
+      - "3313:3306"
+    networks:
+      - car-app-network
+    volumes:
+      - mysql-payment-data:/var/lib/mysql
 
 
   payment-service:
@@ -138,3 +154,9 @@ services:
 networks:
   car-app-network:
     driver: bridge
+
+volumes:
+  mysql-user-data:
+  mysql-car-data:
+  mysql-order-data:
+  mysql-payment-data:

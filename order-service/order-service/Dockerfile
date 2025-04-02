@@ -8,4 +8,4 @@ ADD target/order-service.jar order-service.jar
 EXPOSE 8083
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "order-service.jar"]
+ENTRYPOINT ["java","--enable-native-access=ALL-UNNAMED", "-jar", "order-service.jar"]
