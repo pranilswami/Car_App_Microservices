@@ -8,4 +8,4 @@ ADD target/notification-service.jar notification-service.jar
 EXPOSE 8085
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "notification-service.jar"]
+ENTRYPOINT ["java","--enable-native-access=ALL-UNNAMED", "-jar", "notification-service.jar"]

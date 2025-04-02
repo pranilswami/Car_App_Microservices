@@ -8,4 +8,4 @@ ADD target/car-service.jar car-service.jar
 EXPOSE 8082
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "car-service.jar"]
+ENTRYPOINT ["java","--enable-native-access=ALL-UNNAMED", "-jar", "car-service.jar"]
