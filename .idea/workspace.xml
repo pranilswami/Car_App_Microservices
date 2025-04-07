@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc3648e-b6ec-4b87-94cc-9e4928e0b910" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/car-service/car-service/src/main/java/com/car_app/car_service/car_service/controller/YearController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car-service/car-service/src/main/java/com/car_app/car_service/car_service/payload/YearDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car-service/car-service/src/main/java/com/car_app/car_service/car_service/service/YearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/src/main/java/com/car_app/car_service/car_service/repository/YearRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/src/main/java/com/car_app/car_service/car_service/repository/YearRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/car-service/car-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="3cc3648e-b6ec-4b87-94cc-9e4928e0b910" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
